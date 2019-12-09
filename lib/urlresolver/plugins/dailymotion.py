@@ -52,7 +52,7 @@ class DailymotionResolver(UrlResolver):
         streams = js_data.get('metadata', {}).get('qualities', {})
         for quality, links in streams.iteritems():
             for link in links:
-                if quality.isdigit() and link.get('type', '').startswith('application'):
+                if link.get('type', '').startswith('application'):
                     sources.append((quality, link['url']))
                 
         sources.sort(key=lambda x: self.__key(x), reverse=True)
