@@ -43,7 +43,7 @@ class DailymotionResolver(UrlResolver):
         
         if '"title":"Content rejected."' in html: raise ResolverError('This video has been removed due to a copyright claim.')
         
-        match = re.search('var\s+config\s*=\s*(.*?}});', html)
+        match = re.search('var\s+config\s*=\s*(.*?});', html)
         if not match: raise ResolverError('Unable to locate config')
         try: js_data = json.loads(match.group(1))
         except: js_data = {}
